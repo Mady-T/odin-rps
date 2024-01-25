@@ -3,24 +3,22 @@ let cpuScore = 0;
 let roundCount = 1;
 
 while (playerScore < 5 && cpuScore < 5) {
-    playRound(playerScore, cpuScore, roundCount);
+    playRound();
 }
 
 (playerScore >= 5) ? console.log("You Win!") : console.log("You Lose!");
+console.log(`Round ${roundCount}:\nPlayer: ${playerScore}\nCPU: ${cpuScore}`);
 
 
-function playRound(playerScore, cpuScore, roundCount) {
+function playRound() {
     console.group();
-    console.log(`Round ${roundCount}:
-                Player: ${playerScore}
-                CPU: ${cpuScore}
-                `);
+    console.log(`Round ${roundCount}:\nPlayer: ${playerScore}\nCPU: ${cpuScore}`);
     
     let playerChoice = prompt("Rock Paper Scissors!").toLowerCase();
     console.log(`You chose ${playerChoice}`);
 
     let cpuPick = Math.floor(Math.random() * 3);
-    console.log('CPU chose ${stringifyRPS(cpuPick)}');
+    console.log(`CPU chose ${stringifyRPS(cpuPick)}`);
 
     let outcome = evalRound(enumerateRPS(playerChoice), cpuPick);
 
