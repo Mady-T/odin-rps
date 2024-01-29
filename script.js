@@ -35,6 +35,8 @@ buttonPanel.addEventListener('click', (e) => {
 
 function playRound(playerChoice) {
     roundPanel.textContent = roundCount;
+    playerScorePanel.style.color = '';
+    cpuScorePanel.style.color = '';
     
     let cpuPick = Math.floor(Math.random() * 3);
 
@@ -45,8 +47,11 @@ function playRound(playerChoice) {
     
     if (outcome === 'win') {
         playerScore++;
+        playerScorePanel.style.color = 'green';
     } else if (outcome === 'loss') {
         cpuScore++;
+        cpuScorePanel.style.color = 'green';
+
     }
 
     playerScorePanel.textContent = playerScore;

@@ -1,0 +1,34 @@
+div{
+    padding-top: 5px;
+}
+
+div.button-panel {
+    display: flex;
+    justify-content: center;
+}
+
+button {
+    text-align: center;
+    flex: auto;
+    padding: 10px;
+    margin: 5px;
+    font-weight: bold;
+    border-radius: 10px;
+}
+
+span#result {
+    font-size: large;
+    font-weight: bold;
+}
+
+#rock {
+    background-color: lightcoral;
+}
+
+#paper {
+    background-color: lightgreen;
+}
+
+#scissors {
+    background-color: lightblue;
+}
