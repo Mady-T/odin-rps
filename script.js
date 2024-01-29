@@ -2,12 +2,12 @@ let playerScore = 0;
 let cpuScore = 0;
 let roundCount = 1;
 
-const outputPanel = document.querySelector('ul.output-panel');
-const roundPanel = document.querySelector('ul span#round-number');
-const playerScorePanel = document.querySelector('ul span#player-score');
-const cpuScorePanel = document.querySelector('ul span#cpu-score');
-const playerChoicePanel = document.querySelector('ul span#player-choice');
-const cpuChoicePanel = document.querySelector('ul span#cpu-choice');
+const outputPanel = document.querySelector('div.output-panel');
+const roundPanel = document.querySelector('div span#round-number');
+const playerScorePanel = document.querySelector('div span#player-score');
+const cpuScorePanel = document.querySelector('div span#cpu-score');
+const playerChoicePanel = document.querySelector('div span#player-choice');
+const cpuChoicePanel = document.querySelector('div span#cpu-choice');
 
 
 const buttonPanel = document.querySelector("div.button-panel");
@@ -27,8 +27,8 @@ buttonPanel.addEventListener('click', (e) => {
             break;
         }
     } else {
-        (playerScore >= 5) ? console.log("You Win!") : console.log("You Lose!");
-        console.log(`Round ${roundCount}:\nPlayer: ${playerScore}\nCPU: ${cpuScore}`);
+        // (playerScore >= 5) ? console.log("You Win!") : console.log("You Lose!");
+        // console.log(`Round ${roundCount}:\nPlayer: ${playerScore}\nCPU: ${cpuScore}`);
     }
 });
 
@@ -47,8 +47,8 @@ function playRound(playerChoice) {
 
     let cpuPick = Math.floor(Math.random() * 3);
     // console.log(`CPU chose ${stringifyRPS(cpuPick)}`);
-    playerChoicePanel.textContent = playerChoice;
-    cpuChoicePanel.textContent = stringifyRPS(cpuPick);
+    playerChoicePanel.textContent = playerChoice.toString().toUpperCase();
+    cpuChoicePanel.textContent = stringifyRPS(cpuPick).toUpperCase();
 
     let outcome = evalRound(enumerateRPS(playerChoice), cpuPick);
 
