@@ -2,6 +2,11 @@ let playerScore = 0;
 let cpuScore = 0;
 let roundCount = 1;
 
+const buttonPanel = document.querySelector("div.button-panel");
+buttonPanel.addEventListener('click', (e) => {
+    console.log(e.target);
+});
+
 while (playerScore < 5 && cpuScore < 5) {
     playRound();
 }
