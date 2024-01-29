@@ -4,22 +4,34 @@ let roundCount = 1;
 
 const buttonPanel = document.querySelector("div.button-panel");
 buttonPanel.addEventListener('click', (e) => {
-    console.log(e.target);
+    if (playerScore < 5 && cpuScore < 5) {
+    switch(e.target.id) {
+        case 'rock':
+            playRound('rock')
+            break;
+        case 'paper':
+            playRound('paper');
+            break;
+        case 'scissors':
+            playRound('scissors');
+            break;
+        default:
+            break;
+        }
+    } else {
+        (playerScore >= 5) ? console.log("You Win!") : console.log("You Lose!");
+        console.log(`Round ${roundCount}:\nPlayer: ${playerScore}\nCPU: ${cpuScore}`);
+    }
 });
 
-while (playerScore < 5 && cpuScore < 5) {
-    playRound();
-}
-
-(playerScore >= 5) ? console.log("You Win!") : console.log("You Lose!");
-console.log(`Round ${roundCount}:\nPlayer: ${playerScore}\nCPU: ${cpuScore}`);
 
 
-function playRound() {
+
+function playRound(playerChoice) {
     console.group();
     console.log(`Round ${roundCount}:\nPlayer: ${playerScore}\nCPU: ${cpuScore}`);
     
-    let playerChoice = prompt("Rock Paper Scissors!").toLowerCase();
+    // let playerChoice = prompt("Rock Paper Scissors!").toLowerCase();
     console.log(`You chose ${playerChoice}`);
 
     let cpuPick = Math.floor(Math.random() * 3);
