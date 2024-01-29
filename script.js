@@ -7,7 +7,7 @@ const roundPanel = document.querySelector('ul span#round-number');
 const playerScorePanel = document.querySelector('ul span#player-score');
 const cpuScorePanel = document.querySelector('ul span#cpu-score');
 const playerChoicePanel = document.querySelector('ul span#player-choice');
-const cpuChoicePanel = document.querySelector('ul span#cpu-score');
+const cpuChoicePanel = document.querySelector('ul span#cpu-choice');
 
 
 const buttonPanel = document.querySelector("div.button-panel");
@@ -36,14 +36,19 @@ buttonPanel.addEventListener('click', (e) => {
 
 
 function playRound(playerChoice) {
-    console.group();
-    console.log(`Round ${roundCount}:\nPlayer: ${playerScore}\nCPU: ${cpuScore}`);
+    // console.group();
+    // console.log(`Round ${roundCount}:\nPlayer: ${playerScore}\nCPU: ${cpuScore}`);
     
     // let playerChoice = prompt("Rock Paper Scissors!").toLowerCase();
-    console.log(`You chose ${playerChoice}`);
+    // console.log(`You chose ${playerChoice}`);
+    roundPanel.textContent = roundCount;
+    playerScorePanel.textContent = playerScore;
+    cpuScorePanel.textContent = cpuScore;
 
     let cpuPick = Math.floor(Math.random() * 3);
-    console.log(`CPU chose ${stringifyRPS(cpuPick)}`);
+    // console.log(`CPU chose ${stringifyRPS(cpuPick)}`);
+    playerChoicePanel.textContent = playerChoice;
+    cpuChoicePanel.textContent = stringifyRPS(cpuPick);
 
     let outcome = evalRound(enumerateRPS(playerChoice), cpuPick);
 
