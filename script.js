@@ -2,6 +2,14 @@ let playerScore = 0;
 let cpuScore = 0;
 let roundCount = 1;
 
+const outputPanel = document.querySelector('ul.output-panel');
+const roundPanel = document.querySelector('ul span#round-number');
+const playerScorePanel = document.querySelector('ul span#player-score');
+const cpuScorePanel = document.querySelector('ul span#cpu-score');
+const playerChoicePanel = document.querySelector('ul span#player-choice');
+const cpuChoicePanel = document.querySelector('ul span#cpu-score');
+
+
 const buttonPanel = document.querySelector("div.button-panel");
 buttonPanel.addEventListener('click', (e) => {
     if (playerScore < 5 && cpuScore < 5) {
