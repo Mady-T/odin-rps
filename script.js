@@ -54,7 +54,7 @@ function playRound(playerChoice) {
 
     if (playerScore >= 5) {
         resultPanel.textContent = "You Win!";
-    } else {
+    } else if (cpuScore >= 5) {
         resultPanel.textContent = "You Lose!";
     }
     roundCount++;
