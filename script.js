@@ -8,6 +8,7 @@ const playerScorePanel = document.querySelector('div span#player-score');
 const cpuScorePanel = document.querySelector('div span#cpu-score');
 const playerChoicePanel = document.querySelector('div span#player-choice');
 const cpuChoicePanel = document.querySelector('div span#cpu-choice');
+const resultPanel = document.querySelector('div span#result');
 
 
 const buttonPanel = document.querySelector("div.button-panel");
@@ -26,39 +27,37 @@ buttonPanel.addEventListener('click', (e) => {
         default:
             break;
         }
-    } else {
-        // (playerScore >= 5) ? console.log("You Win!") : console.log("You Lose!");
-        // console.log(`Round ${roundCount}:\nPlayer: ${playerScore}\nCPU: ${cpuScore}`);
-    }
+    } 
 });
 
 
 
 
 function playRound(playerChoice) {
-    // console.group();
-    // console.log(`Round ${roundCount}:\nPlayer: ${playerScore}\nCPU: ${cpuScore}`);
-    
-    // let playerChoice = prompt("Rock Paper Scissors!").toLowerCase();
-    // console.log(`You chose ${playerChoice}`);
     roundPanel.textContent = roundCount;
-    playerScorePanel.textContent = playerScore;
-    cpuScorePanel.textContent = cpuScore;
-
+    
     let cpuPick = Math.floor(Math.random() * 3);
-    // console.log(`CPU chose ${stringifyRPS(cpuPick)}`);
+
     playerChoicePanel.textContent = playerChoice.toString().toUpperCase();
     cpuChoicePanel.textContent = stringifyRPS(cpuPick).toUpperCase();
-
+    
     let outcome = evalRound(enumerateRPS(playerChoice), cpuPick);
-
+    
     if (outcome === 'win') {
         playerScore++;
     } else if (outcome === 'loss') {
         cpuScore++;
     }
+
+    playerScorePanel.textContent = playerScore;
+    cpuScorePanel.textContent = cpuScore;
+
+    if (playerScore >= 5) {
+        resultPanel.textContent = "You Win!";
+    } else {
+        resultPanel.textContent = "You Lose!";
+    }
     roundCount++;
-    console.groupEnd();
 }
 
 
